@@ -30,4 +30,4 @@ jobs:
       - name: Run tests
         uses: matlab-actions/run-tests@v2-rc0
         with:
-          statup-options: -webui -logfile "output.log"
+          startup-options: -webui -logfile "output.log"
