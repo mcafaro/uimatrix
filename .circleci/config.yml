@@ -1,16 +1,34 @@
-version: '2.1'
+version: 2.1
+
 orbs:
   matlab: mathworks/matlab@dev:v1-rc
-jobs:
-  build:
+
+executors:
+  docker: # Docker using the Base Convenience Image
+    docker:
+      - image: cimg/base:stable
+  linux: # a Linux VM running Ubuntu 20.04
     machine:
-      image: ubuntu-2204:2022.07.1
+      image: ubuntu-2004:202107-02
+  macos: # macos executor running Xcode
+    macos:
+      xcode: 14.2.0
+
+jobs:
+  test:
+    parameters:
+      os:
+        type: executor
+    executor: << parameters.os >>
     steps:
       - checkout
       - matlab/install
       - matlab/run-tests
-workflows:
-  build:
-    jobs:
-      - build
 
+workflows:
+  all-tests:
+    jobs:
+      - test:
+          matrix:
+            parameters:
+              os: [docker, linux, macos]
