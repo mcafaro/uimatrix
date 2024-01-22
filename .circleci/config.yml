@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   matlab: mathworks/matlab@dev:v1-rc
+  win: circleci/windows@5.0
 
 executors:
   docker: # Docker using the Base Convenience Image
@@ -31,4 +32,4 @@ workflows:
       - test:
           matrix:
             parameters:
-              os: [docker, linux, macos]
+              os: [docker, linux, macos, win/server-2022]
