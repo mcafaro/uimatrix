@@ -29,3 +29,5 @@ jobs:
           echo "DISPLAY=:99" >> $GITHUB_ENV
       - name: Run tests
         uses: matlab-actions/run-tests@v2-rc0
+        with:
+          statup-options: -webui -logfile "output.log"
