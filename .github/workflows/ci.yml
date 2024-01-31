@@ -17,8 +17,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Setup MATLAB
-        uses: matlab-actions/setup-matlab@v2-rc0
+        uses: matlab-actions/setup-matlab@v2
         with:
+          release: R2020a
           products: MATLAB
           cache: true
       - name: Start display server
