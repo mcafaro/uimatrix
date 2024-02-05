@@ -22,8 +22,6 @@ jobs:
         with:
           release: ${{ matrix.release }}
           products: MATLAB Simulink
-      - name: Setup upterm session
-        uses: lhotari/action-upterm@v1
       - name: Run command
         uses: matlab-actions/run-command@v2
         with:
