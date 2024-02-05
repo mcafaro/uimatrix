@@ -22,6 +22,6 @@ jobs:
         with:
           release: ${{ matrix.release }}
       - name: Run command
-        uses: matlab-actions/run-command@v2-rc0
+        uses: matlab-actions/run-command@v2
         with:
-          startup-options: matlabVer = ver('matlab'); assert(~isempty(matlabVer));
+          command: matlabVer = ver('matlab'); assert(~isempty(matlabVer));
